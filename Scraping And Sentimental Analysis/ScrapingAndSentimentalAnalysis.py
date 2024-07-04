@@ -16,10 +16,10 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
-import seaborn as sns
+#from wordcloud import WordCloud
+#import matplotlib.pyplot as plt
+#import matplotlib.ticker as mtick
+#import seaborn as sns
 import streamlit as st
 
 st.title("Twitter Analysis")
@@ -107,19 +107,19 @@ if st.button("Analyse"):
 
     consolidated = ' '.join(word for word in df['cleanedTweets'])
 
-    wordCloud = WordCloud(width=400, height=200, random_state=20, max_font_size=119).generate(consolidated)
-    plt.imshow(wordCloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
+    #wordCloud = WordCloud(width=400, height=200, random_state=20, max_font_size=119).generate(consolidated)
+    #plt.imshow(wordCloud, interpolation='bilinear')
+    #plt.axis('off')
+    #plt.show()
 
     print(df.groupby('segmentation').count())
 
-    plt.figure(figsize=(10,5))
-    sns.set_style("whitegrid")
-    sns.scatterplot(data=df, x='tPolarity',y='tSubjectivity',s=100,hue='segmentation')
+    #plt.figure(figsize=(10,5))
+    #sns.set_style("whitegrid")
+    #sns.scatterplot(data=df, x='tPolarity',y='tSubjectivity',s=100,hue='segmentation')
 
-    plt.figure(figsize=(10,5))
-    sns.countplot(data=df,x='segmentation')
+    #plt.figure(figsize=(10,5))
+    #sns.countplot(data=df,x='segmentation')
 
     positive = round(len(df[df.segmentation == 'positive'])/len(df)*100,1)
     negative = round(len(df[df.segmentation == 'negative'])/len(df)*100,1)
