@@ -27,7 +27,7 @@ my_user = st.text_input(label="UserName",placeholder="Enter UserName")
 my_pass = st.text_input(label="Password",placeholder="Enter Password",type="password") 
 search_item= st.text_input(label="About What",placeholder="Enter Search Item") 
 if st.button("Analyse"):
-    PATH ="chromedriver.exe"
+    #PATH ="chromedriver.exe"
     driver = webdriver.Chrome()
     driver.get("https://twitter.com/i/flow/login")
     # driver.maximize_window()
