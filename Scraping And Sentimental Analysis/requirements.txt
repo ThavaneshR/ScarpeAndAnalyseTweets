@@ -2,3 +2,4 @@ nltk
 selenium
 streamlit
 textblob
+webdriver_manager
