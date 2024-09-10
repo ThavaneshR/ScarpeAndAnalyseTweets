@@ -8,6 +8,7 @@ import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 import getpass
 import pandas as pd
@@ -27,7 +28,10 @@ my_user = st.text_input(label="UserName",placeholder="Enter UserName")
 my_pass = st.text_input(label="Password",placeholder="Enter Password",type="password") 
 search_item= st.text_input(label="About What",placeholder="Enter Search Item") 
 if st.button("Analyse"):
-    driver = webdriver.Chrome()
+    #driver = webdriver.Chrome()
+    driver_path = ChromeDriverManager().install()
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(service=webdriver.chrome.service.Service(driver_path), options=options)
     driver.get("https://twitter.com/i/flow/login")
     # driver.maximize_window()
     sleep(5)
